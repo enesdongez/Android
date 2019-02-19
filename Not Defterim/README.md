@@ -1,4 +1,5 @@
 #Not Defterim
+
  Bu uygulama kullanıcılara güvenlikli giriş imkânıyla notlarını korumayı ve girilen notların uygulamayı 
 kullanan diğer kullanıcılara gösterebildikleri bir uygulamadır. Bu uygulama sayesinde hem kendiniz için hem de diğer
 kullanıcılar için notlar hazırlayabilirsiniz, bu sayede kullanıcılar içerisinde iletişim daha sağlıklı ve daha 
