@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Main7Activity">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="128dp"
+        android:fontFamily="monospace"
+        android:text="Alarm Kur"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="78dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="220dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="saniye"
+            tools:layout_editor_absoluteX="88dp"
+            tools:layout_editor_absoluteY="79dp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dakika"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="79dp" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:clickable="false"
+            android:duplicateParentState="false"
+            android:text="saat"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="79dp" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="84dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="112dp"
+        android:background="@android:color/background_light"
+        android:ems="10"
+        android:hint="Süre.."
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="120dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="146dp"
+        android:background="@android:color/background_light"
+        android:text="Kur"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="257dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="77dp"
+        android:background="@android:color/background_light"
+        android:ems="10"
+        android:hint="Alarm Notu.."
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+</android.support.constraint.ConstraintLayout>

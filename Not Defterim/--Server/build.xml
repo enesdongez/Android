@@ -1,0 +1,74 @@
+<!-- Copyright (c) 2002 by ObjectLearn. All Rights Reserved. -->
+<project name="EnesNotlarServer"  default="deploy"  basedir=".">
+	
+	<buildnumber/>
+	
+  <tstamp>
+	      <format property="touch.time" pattern="yyyyMMdd_HHmmss"/>
+  </tstamp>
+	
+  <!-- set global properties for this build -->
+  <property file="build.properties"/>
+  <property name="dist" value="dist" />
+  <property name="bin" value="bin" />
+  <property name="src" value="src" />
+  <property name="lib" value="lib" />
+  <property name="run" value="run" />
+  <property name="jar" value="${ant.project.name}-1.0.${build.number}.jar" />
+  
+  <target name="deploy" depends="" >
+
+  	<echo message="Deleting ${dist}/classes ..."/> 
+    <delete dir="${dist}/classes" failonerror="false" />
+  	<echo message="Deleting ${dist}/lib ..."/> 
+  	<delete dir="${dist}/lib" failonerror="false" />
+    	
+    <mkdir dir="${dist}"/>
+    <mkdir dir="${dist}/classes"/>
+  
+  	<echo message="Copying classes from ${ant.project.name}/${bin} and sources from ${ant.project.name}/${src} ..."/> 
+  	<copy todir="${dist}/classes">
+      	<fileset dir="${bin}">
+          <include name="**/*.*"/>
+      	</fileset>
+      	<fileset dir="${src}">
+          <include name="**/*.*"/>
+      	</fileset>
+    </copy>
+
+  	<echo message="Copying jars from ${basedir}/lib ..."/>
+  	<copy todir="${dist}/lib">    
+  		<fileset dir="${lib}">
+          <include name="**/*.*"/>
+	    </fileset>
+  	</copy>
+  	
+    <delete file="${jar}" failonerror="false" />
+  	<echo message="Creating jar file : ${dist}/${jar} ..."/>
+  	
+  	 <jar jarfile="${dist}/${jar}" basedir="${dist}/classes">
+  				<manifest>
+  					<attribute name="Class-Path" value="
+  						lib/gson-2.8.5.jar
+  						lib/jdbc-api-1.4.jar
+  						lib/jetty-http-9.4.14.v20181114.jar
+  						lib/jetty-io-9.4.14.v20181114.jar
+  						lib/jetty-server-9.4.14.v20181114.jar
+  						lib/jetty-util-9.4.14.v20181114.jar
+  						lib/servlet-api-3.1.jar
+  						lib/sqlite-jdbc-3.23.1.jar
+  									"/>
+  					<attribute name="Main-Class" value="com.enes.notlar.server.NotlarMain"/>
+  				</manifest>
+
+  			</jar>
+  	
+  	<echo file="${dist}/run.bat">java -jar ${jar}</echo>
+  	<echo file="${dist}/run.sh">java -jar ${jar} &amp;</echo>
+  	
+    <delete dir="${dist}/classes" failonerror="false" />
+  	
+  </target>
+    
+
+</project>

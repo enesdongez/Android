@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Not İşlemleri">
+            <menu>
+        <item
+            android:id="@+id/nav_notlarim"
+            android:icon="@drawable/ic_menu_notlar2"
+            android:title="Notlarım" />
+        <item
+            android:id="@+id/nav_paylasilan"
+            android:icon="@drawable/ic_menu_notlar2"
+            android:title="Paylaşılan Notlar" />
+        <item
+            android:id="@+id/nav_yeninot"
+            android:icon="@drawable/ic_menu_import"
+            android:title="Yeni Not" />
+        <item
+            android:id="@+id/nav_hatirlat"
+            android:icon="@drawable/ic_menu_alarm"
+            android:title="Hatırlatıcılarım" />
+        <item
+            android:id="@+id/nav_hatirlaticiekle"
+            android:icon="@drawable/ic_menu_clockadd"
+            android:title="Hatırlatıcı Ekle" />
+            </menu>
+        </item>
+    </group>
+    <item android:title="Gönderme İşlemleri">
+        <menu>
+            <item
+                android:id="@+id/nav_wshap"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Paylaş" />
+        </menu>
+    </item>
+    <item android:title="Çıkış İşlemleri">
+        <menu>
+            <item
+                android:id="@+id/nav_cikis"
+                android:icon="@drawable/ic_menu_close"
+                android:title="Çıkış" />
+
+        </menu>
+    </item>
+
+</menu>
