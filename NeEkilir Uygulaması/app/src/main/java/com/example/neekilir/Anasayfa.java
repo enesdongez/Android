@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +32,9 @@ public class Anasayfa extends AppCompatActivity {
     ArrayList<String> aylarListesi;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mDataBaseRef;
-    Button ekle;
+    Button ekle,cikis;
+
+    adabter_list adapter;
 
 
     @Override
@@ -55,29 +58,15 @@ public class Anasayfa extends AppCompatActivity {
         aylarListesi.add("Kasim");
         aylarListesi.add("Aralik");
 
-        ekle=findViewById(R.id.ekle_admin);
 
 
-        kullaniciAdi=findViewById(R.id.kullanici_adi);
-        final String kadim=intent.getStringExtra("kullaniciadi");
-        kullaniciAdi.setText(kadim);
-
-        if(kadim.equals("Admin")){
-            ekle.setVisibility(View.VISIBLE);
-        }
-
-        ekle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Anasayfa.this,UrunKayit.class);
-                intent.putExtra("kullaniciadi",kadim);
-                startActivity(intent);
-            }
-        });
 
 
         Aylar=findViewById(R.id.aylar);
-        ArrayAdapter<String> adapter = new  ArrayAdapter<>(Anasayfa.this, android.R.layout.simple_list_item_1,android.R.id.text1,aylarListesi);
+
+        adapter = new adabter_list(Anasayfa.this,aylarListesi);
+
+       // ArrayAdapter<String> adapter = new  ArrayAdapter<>(Anasayfa.this, android.R.layout.simple_list_item_1,android.R.id.text1,aylarListesi);
         Aylar.setAdapter(adapter);
 
         Aylar.setOnItemClickListener(new AdapterView.OnItemClickListener() {

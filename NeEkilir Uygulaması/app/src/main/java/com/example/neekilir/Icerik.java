@@ -1,13 +1,20 @@
 package com.example.neekilir;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +32,9 @@ public class Icerik extends AppCompatActivity {
     private ArrayList<String> aylist;
     ListView ayiceriklistesi;
     TextView yazi;
+    ImageView resim;
+    adabter_list2 adapter;
+    Button Ekle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +42,39 @@ public class Icerik extends AppCompatActivity {
         setContentView(R.layout.activity_icerik);
 
         Intent intent = getIntent();
+
         aylist = new ArrayList<>();
         ayiceriklistesi=findViewById(R.id.icerik_goster);
         yazi=findViewById(R.id.textView);
+        resim=findViewById(R.id.imageView);
+        Ekle=findViewById(R.id.ekle);
 
-        String ayadi=intent.getStringExtra("ayadi");
+        resim.setImageResource(R.drawable.icerikresim);
+
+        final String ayadi=intent.getStringExtra("ayadi");
 
         yazi.setText(ayadi+" ayı ekilebilecekler.");
 
         ayicerik(ayadi);
 
+        Ekle=findViewById(R.id.ekle);
 
 
+
+
+        Ekle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Icerik.this,UrunKayit.class);
+                intent.putExtra("ay",ayadi);
+                startActivity(intent);
+            }
+        });
 
 
 
     }
+
 
     public void ayicerik(String ay){
 
@@ -60,11 +87,12 @@ public class Icerik extends AppCompatActivity {
 
                 for(DataSnapshot ds:dataSnapshot.getChildren()){
                     aylist.add(ds.getValue()+"");
-
                 }
-                ArrayAdapter<String> adapter = new  ArrayAdapter<>(Icerik.this, android.R.layout.simple_list_item_1,android.R.id.text1,aylist);
+
+                adapter = new adabter_list2(Icerik.this,aylist);
 
                 ayiceriklistesi.setAdapter(adapter);
+                aylist=new ArrayList<>();
             }
 
             @Override

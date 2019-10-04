@@ -10,15 +10,16 @@
     android:orientation="vertical"
     tools:context=".UrunKayit">
 
-    <EditText
+    <TextView
         android:id="@+id/urunAy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Ay"
-        android:inputType="textPersonName"
-        android:textAlignment="center" />
+        android:text="asdasd"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/urunAd"
@@ -26,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="Ad"
+        android:hint="İsim"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
