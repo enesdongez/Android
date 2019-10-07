@@ -52,13 +52,13 @@ public class Giris extends AppCompatActivity {
         public void run() {
             try {
                 super.run();
-                sleep(1000);  //Delay of 10 seconds
+                sleep(800);  //Delay of 10 seconds
             } catch (Exception e) {
 
             } finally {
 
                 Intent i = new Intent(getApplicationContext(),
-                        Anasayfa.class);
+                        Anasayfa_Activity.class);
 
                 startActivity(i);
                 finish();

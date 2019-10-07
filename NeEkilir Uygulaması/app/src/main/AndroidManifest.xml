@@ -9,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Anasayfa_Activity"
+            android:label="@string/title_activity_anasayfa_"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AdminGiris" />
+        <activity android:name=".urunkayitistek" />
         <activity android:name=".Icerik" />
         <activity android:name=".Anasayfa" />
         <activity android:name=".UrunKayit" />

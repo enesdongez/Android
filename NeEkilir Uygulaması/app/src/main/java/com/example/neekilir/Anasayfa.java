@@ -32,7 +32,7 @@ public class Anasayfa extends AppCompatActivity {
     ArrayList<String> aylarListesi;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mDataBaseRef;
-    Button ekle,cikis;
+    Button giris;
 
     adabter_list adapter;
 
@@ -57,6 +57,16 @@ public class Anasayfa extends AppCompatActivity {
         aylarListesi.add("Ekim");
         aylarListesi.add("Kasim");
         aylarListesi.add("Aralik");
+
+        giris=findViewById(R.id.giris_anasayfa);
+
+        giris.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Anasayfa.this,Anasayfa_Activity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

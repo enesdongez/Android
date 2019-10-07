@@ -1,15 +1,26 @@
-package com.example.neekilir;
+package com.example.neekilir.ui.send;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.neekilir.Icerik;
+import com.example.neekilir.R;
+import com.example.neekilir.UrunKayit;
+import com.example.neekilir.adabter_list2;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,8 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Icerik extends AppCompatActivity {
+public class SendFragment extends Fragment {
 
+    private SendViewModel sendViewModel;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mDataBaseRef;
 
@@ -30,28 +42,29 @@ public class Icerik extends AppCompatActivity {
     adabter_list2 adapter;
     Button Ekle;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_icerik);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        sendViewModel =
+                ViewModelProviders.of(this).get(SendViewModel.class);
+        View root = inflater.inflate(R.layout.activity_icerik, container, false);
 
-        Intent intent = getIntent();
+        Intent intent = null;
 
         aylist = new ArrayList<>();
-        ayiceriklistesi=findViewById(R.id.icerik_goster);
-        yazi=findViewById(R.id.textView);
-        resim=findViewById(R.id.imageView);
-        Ekle=findViewById(R.id.ekle);
+        ayiceriklistesi=root.findViewById(R.id.icerik_goster);
+        yazi=root.findViewById(R.id.textView);
+        resim=root.findViewById(R.id.imageView);
+        Ekle=root.findViewById(R.id.ekle);
 
         resim.setImageResource(R.drawable.icerikresim);
 
-        final String ayadi=intent.getStringExtra("ayadi");
+        final String ayadi=intent.getStringExtra("ayadi")+"";
 
         yazi.setText(ayadi+" ayı ekilebilecekler.");
 
         ayicerik(ayadi);
 
-        Ekle=findViewById(R.id.ekle);
+        Ekle=root.findViewById(R.id.ekle);
 
 
 
@@ -59,16 +72,15 @@ public class Icerik extends AppCompatActivity {
         Ekle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Icerik.this,UrunKayit.class);
+                Intent intent=new Intent(getContext(), UrunKayit.class);
                 intent.putExtra("ay",ayadi);
                 startActivity(intent);
             }
         });
 
 
-
+        return root;
     }
-
 
     public void ayicerik(String ay){
 
@@ -83,7 +95,7 @@ public class Icerik extends AppCompatActivity {
                     aylist.add(ds.getValue()+"");
                 }
 
-                adapter = new adabter_list2(Icerik.this, aylist);
+                adapter = new adabter_list2((Activity) getContext(), aylist);
 
                 ayiceriklistesi.setAdapter(adapter);
                 aylist=new ArrayList<>();
