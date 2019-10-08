@@ -1,4 +1,5 @@
-# NeEkilir?
+![GitHub Logo](https://github.com/enesdongez/Android/blob/master/NeEkilir%20Uygulamas%C4%B1/splash.png)
+Format: ![Alt Text](url)# NeEkilir?
 
 Uygulama ile hangi ayda hangi sebze veya meyvenin dikiminin yapılacağını görebilir ve eksik ya da yanlış girilen bilgileri düzeltmek
 için geri bildirimde bulunabilirsiniz, uygulama içerisinde hangi ay içinde hangi sebze veya meyvenin dikiminin gerçekleştirilebileceğini öğrenebilir veya öğretebilirsiniz.</br>
