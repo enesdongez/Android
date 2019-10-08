@@ -69,7 +69,12 @@ public class Icerik extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(Icerik.this,Anasayfa_Activity.class);
+        startActivity(intent);
+        finish();
+    }
     public void ayicerik(String ay){
 
         mDatabase = FirebaseDatabase.getInstance();

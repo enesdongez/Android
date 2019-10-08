@@ -36,8 +36,8 @@ public class UrunKayit extends AppCompatActivity {
 
         gorsel1.setImageResource(R.drawable.logom);
 
-
-        urunay.setText(intent.getStringExtra("ay"));
+        final String ayadi=intent.getStringExtra("ay");
+        urunay.setText(ayadi.toString()+" Ayı urun girişi");
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +51,7 @@ public class UrunKayit extends AppCompatActivity {
 
                 String key = newChildRef.getKey();
 
-                Urun urun = new Urun(urunay.getText().toString(), urunad.getText().toString());
+                Urun urun = new Urun(ayadi, urunad.getText().toString());
                 mDatabase.child("NeEkilir_istek").child(key).setValue(urun);
                 Toast.makeText(getApplicationContext(), "İsteğiniz alınmıştır en kısa sürede eklenecektir.", Toast.LENGTH_LONG).show();
                 onBackPressed();

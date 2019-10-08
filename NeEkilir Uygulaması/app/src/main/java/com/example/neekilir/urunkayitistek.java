@@ -61,6 +61,7 @@ public class urunkayitistek extends AppCompatActivity {
         });
 
     }
+
     public void icerik(){
 
         mDatabase = FirebaseDatabase.getInstance();

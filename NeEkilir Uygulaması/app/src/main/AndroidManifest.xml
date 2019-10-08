@@ -16,7 +16,6 @@
         <activity android:name=".AdminGiris" />
         <activity android:name=".urunkayitistek" />
         <activity android:name=".Icerik" />
-        <activity android:name=".Anasayfa" />
         <activity android:name=".UrunKayit" />
         <activity android:name=".Giris">
             <intent-filter>
